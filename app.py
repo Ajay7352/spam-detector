@@ -11,7 +11,7 @@ st.set_page_config(page_title="SMS Spam Checker", page_icon="🛡️")
 st.title("🛡️ SMS Spam Checker")
 st.write("Paste an SMS message to estimate whether it may be spam.")
 
-data = pd.read_csv(Path(__file__).parent / "data" / "spam.csv")
+data = pd.read_csv(Path(__file__).parent / "spam.csv")
 data = data[["label", "message"]].dropna().drop_duplicates()
 data["label"] = data["label"].str.lower().str.strip()
 
