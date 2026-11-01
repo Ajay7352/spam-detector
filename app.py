@@ -12,6 +12,7 @@ st.title("🛡️ SMS Spam Checker")
 st.write("Paste an SMS message to estimate whether it may be spam.")
 
 data = pd.read_csv(Path(__file__).parent / "spam.csv", encoding="latin-1")
+data = data.rename(columns={"v1": "label", "v2": "message"})
 data = data[["label", "message"]].dropna().drop_duplicates()
 data["label"] = data["label"].str.lower().str.strip()
 
